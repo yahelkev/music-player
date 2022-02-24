@@ -28,9 +28,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class allSongsFrag extends Fragment {
-    ArrayList<Song> songsList = new ArrayList<Song>();
-    ListView listView = null;
-    String[] namesList;
+    public ArrayList<Song> songsList = new ArrayList<Song>();
+    private ListView listView = null;
+    private String[] namesList;
     public allSongsFrag() {
     }
 

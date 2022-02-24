@@ -4,8 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Yahel/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.1474164133738602" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_arrow_left.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_arrow_right.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_menu.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_pause.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_play.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_shuffle.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/drawable/ic_baseline_terrain_24.xml" value="0.1" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/layout/activity_main.xml" value="0.18414387031408308" />
         <entry key="..\:/androidProjects/music-player/app/src/main/res/layout/activity_player.xml" value="0.22" />
         <entry key="..\:/androidProjects/music-player/app/src/main/res/layout/fragment_all_songs.xml" value="0.20425724637681159" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/layout/fragment_main.xml" value="0.18414387031408308" />
+        <entry key="..\:/androidProjects/music-player/app/src/main/res/layout/fragment_playl_lists.xml" value="0.18414387031408308" />
       </map>
     </option>
   </component>

@@ -27,6 +27,6 @@ public class playListsFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_playl_lists, container, false);
+        return inflater.inflate(R.layout.fragment_play_lists, container, false);
     }
 }
