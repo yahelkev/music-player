@@ -10,14 +10,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.music_player.R;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.All_Songs, R.string.Playlists, R.string.Record};
+    private static final int[] TAB_TITLES = new int[]{R.string.All_Songs, R.string.Playlists};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -33,10 +29,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new allSongsFrag();
                 break;
             case 1:
-                fragment = new playlListsFrag();
-                break;
-            case 2:
-                fragment = new recordFrag();
+                fragment = new playListsFrag();
                 break;
         }
         return fragment;
