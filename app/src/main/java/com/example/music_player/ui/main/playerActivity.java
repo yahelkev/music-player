@@ -116,7 +116,10 @@ public class playerActivity extends AppCompatActivity {
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-                btnNext.performClick();
+                if(repeat){ updateSong();}
+                else{
+                    btnNext.performClick();
+                }
             }
         });
     }
