@@ -1,6 +1,7 @@
 package com.example.music_player.ui.main;
 
 import android.Manifest;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -28,7 +30,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class allSongsFrag extends Fragment {
-    public ArrayList<Song> songsList = new ArrayList<Song>();
+    public  static ArrayList<Song> songsList = new ArrayList<Song>();
     private ListView listView = null;
     private String[] namesList;
     public allSongsFrag() {
@@ -104,5 +106,14 @@ public class allSongsFrag extends Fragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, namesList);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String songTitle = (String) listView.getItemAtPosition(i);
+                startActivity(new Intent(getActivity().getApplicationContext(),playerActivity.class)
+                .putExtra("songIndex", i));
+            }
+        });
     }
 }
