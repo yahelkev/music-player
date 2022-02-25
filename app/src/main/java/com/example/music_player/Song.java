@@ -1,6 +1,9 @@
 package com.example.music_player;
 
-public class Song {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Song implements Parcelable {
     private String title;
     private String path;
     private String artist;
@@ -14,6 +17,40 @@ public class Song {
         this.album = album;
         this.duration = duration;
     }
+
+    protected Song(Parcel in) {
+        title = in.readString();
+        path = in.readString();
+        artist = in.readString();
+        album = in.readString();
+        duration = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(path);
+        dest.writeString(artist);
+        dest.writeString(album);
+        dest.writeString(duration);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
 
     public String getTitle() {
         return title;

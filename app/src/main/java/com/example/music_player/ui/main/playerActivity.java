@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class playerActivity extends AppCompatActivity {
 
+    ArrayList<Song> songsList;
     ImageView btnBack, btnMenu, btnNext, btnPrev, btnRepeat, btnShuffle, btnPlayPause;
     TextView songTitle, songArtist;
     static MediaPlayer mediaPlayer;
@@ -44,8 +45,9 @@ public class playerActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        songsList = (ArrayList) bundle.getParcelableArrayList("songsList");
         index = bundle.getInt("songIndex",0);
-        currentSong = allSongsFrag.songsList.get(index);
+        currentSong = songsList.get(index);
         //setting display
         songTitle.setSelected(true);
         songArtist.setSelected(true);
@@ -67,12 +69,10 @@ public class playerActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!repeat) {
-                    if (shuffle) {
-                        index = new Random().nextInt(allSongsFrag.songsList.size());
-                    } else {
-                        index = (index + 1) % allSongsFrag.songsList.size();
-                    }
+                if (shuffle) {
+                    index = new Random().nextInt(songsList.size());
+                } else {
+                    index = (index + 1) % songsList.size();
                 }
                 updateSong();
             }
@@ -80,7 +80,7 @@ public class playerActivity extends AppCompatActivity {
         btnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                index = ((index-1)<0)?(allSongsFrag.songsList.size()-1):index-1;
+                index = ((index-1)<0)?(songsList.size()-1):index-1;
                 updateSong();
             }
         });
@@ -126,7 +126,7 @@ public class playerActivity extends AppCompatActivity {
             mediaPlayer.release();
         }
 
-        currentSong = allSongsFrag.songsList.get(index);
+        currentSong = songsList.get(index);
         songTitle.setText(currentSong.getTitle());
         songArtist.setText(currentSong.getArtist());
 

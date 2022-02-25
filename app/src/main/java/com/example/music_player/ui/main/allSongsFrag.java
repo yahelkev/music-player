@@ -30,11 +30,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class allSongsFrag extends Fragment {
-    public  static ArrayList<Song> songsList = new ArrayList<Song>();
+    private ArrayList<Song> songsList = new ArrayList<Song>();
     private ListView listView = null;
     private String[] namesList;
-    public allSongsFrag() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +45,15 @@ public class allSongsFrag extends Fragment {
         View view = inflater.inflate(R.layout.fragment_all_songs, container, false);
         listView = (ListView) view.findViewById(R.id.listViewSong);
         runtimePermission();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getActivity().getApplicationContext(),playerActivity.class)
+                        .putExtra("songsList", songsList)
+                        .putExtra("songIndex", i));
+            }
+        });
         return view;
     }
     public void runtimePermission()
@@ -106,14 +113,5 @@ public class allSongsFrag extends Fragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, namesList);
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String songTitle = (String) listView.getItemAtPosition(i);
-                startActivity(new Intent(getActivity().getApplicationContext(),playerActivity.class)
-                .putExtra("songIndex", i));
-            }
-        });
     }
 }
