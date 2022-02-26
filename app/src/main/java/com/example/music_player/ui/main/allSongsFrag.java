@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import androidx.appcompat.widget.SearchView;
 
 import com.example.music_player.R;
 import com.example.music_player.Song;
@@ -28,11 +29,14 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class allSongsFrag extends Fragment {
     private ArrayList<Song> songsList = new ArrayList<Song>();
     private ListView listView = null;
     private String[] namesList;
+    ArrayAdapter<String> adapter;
+    SearchView searchView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class allSongsFrag extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_all_songs, container, false);
         listView = (ListView) view.findViewById(R.id.listViewSong);
+        searchView = view.findViewById(R.id.search_song_bar);
         runtimePermission();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,7 +56,20 @@ public class allSongsFrag extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 startActivity(new Intent(getActivity().getApplicationContext(),playerActivity.class)
                         .putExtra("songsList", songsList)
-                        .putExtra("songIndex", i));
+                        .putExtra("songIndex",  Arrays.asList(namesList).indexOf(adapterView.getItemAtPosition(i))));
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
         return view;
@@ -111,7 +129,7 @@ public class allSongsFrag extends Fragment {
         for(int i = 0; i<songsList.size();i++) {
             namesList[i] = songsList.get(i).getTitle();
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, namesList);
+        adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, namesList);
         listView.setAdapter(adapter);
     }
 }
