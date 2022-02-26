@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Music_player">
         <activity
+            android:name=".ui.main.createPlaylist"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.playerActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.main.createPlaylist">
+
+
+    <RelativeLayout
+        android:id="@+id/newPlaylistNameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@color/white">
+
+        <EditText
+            android:id="@+id/playlistName"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:hint="Playlist Name">
+        </EditText>
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_below="@id/newPlaylistNameLayout"
+        android:id="@+id/create_playlist_search_song_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search Here...">
+    </androidx.appcompat.widget.SearchView>
+
+    <ListView
+        android:id="@+id/create_playlist_songsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/create_playlist_search_song_bar"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:padding="8dp">
+    </ListView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/done_creating_playlist_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:foregroundGravity="bottom|right"
+        android:src="@drawable/ic_baseline_done"
+        app:backgroundTint="@color/white" />
+
+</RelativeLayout>

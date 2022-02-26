@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".ui.main.playListsFrag">
 
-    <TextView
+    <ListView
+        android:layout_below="@id/search_song_bar"
+        android:id="@+id/listViewPlaylists"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/white"
-        android:textSize="@dimen/fab_margin"
-        />
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:padding="8dp">
+    </ListView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/create_playlist_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_baseline_create_playlist"/>
+        android:layout_marginBottom="6dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_create_new_playlist"
+        app:backgroundTint="#FFFFFF" />
 
 </FrameLayout>
