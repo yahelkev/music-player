@@ -41,18 +41,18 @@
         android:layout_below="@id/create_playlist_search_song_bar"
         android:divider="@android:color/transparent"
         android:dividerHeight="10.0sp"
-        android:padding="8dp">
-    </ListView>
+        android:padding="8dp"></ListView>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/done_creating_playlist_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/white"
-        android:foregroundGravity="bottom|right"
         android:src="@drawable/ic_baseline_done"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         app:backgroundTint="@color/white" />
 
 </RelativeLayout>

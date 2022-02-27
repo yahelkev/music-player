@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_create_new_playlist"
         app:backgroundTint="#FFFFFF" />
