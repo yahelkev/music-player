@@ -36,13 +36,6 @@
             android:textSize="18sp"
             android:textStyle="italic" />
 
-        <ImageView
-            android:id="@+id/menu_btn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_baseline_menu" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
